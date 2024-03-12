@@ -90,7 +90,12 @@ def generate_planet(seed=None):
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
-        seed = int(request.form.get('seed').strip()) if request.form.get('seed') else None
+        seed = None
+        if request.form.get('seed'):
+            seed = request.form.get('seed').strip()
+            if seed.isnumeric():
+                seed = int(seed)
+        
         planet_info = generate_planet(seed)
         return jsonify({'planet_info': planet_info})
     return render_template('index.html')
