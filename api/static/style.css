@@ -25,7 +25,6 @@ button:focus {
   outline: none;
 }
 
-/* Base button styles */
 button {
 display: inline-block;
 padding: 10px 20px;
@@ -35,41 +34,14 @@ font-size: 16px;
 font-weight: bold;
 text-transform: uppercase;
 cursor: pointer;
-transition: background-color 0.3s ease;
-}
-
-/* Primary button style */
-button {
-background-color: #4CAF50;
-color: white;
-}
-
-/* Button hover effects */
-button:hover {
-opacity: 0.8;
-transform: translateY(-2px);
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Large button style */
-button.large-button {
-padding: 15px 30px;
-}
-
-/* Rounded button style */
-button.rounded-button {
-border-radius: 25px;
-}
-
-/* Button with border */
-button.border-button {
 border: 2px solid #4CAF50;
 background-color: transparent;
 color: #4CAF50;
 }
 
-/* Border button hover effects */
-button.border-button:hover {
-background-color: #4CAF50;
+button:hover {
+opacity: 0.8;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ background-color: #4CAF50;
 color: white;
 }
