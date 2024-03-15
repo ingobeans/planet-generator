@@ -31,19 +31,37 @@
             xhr.send('seed=' + seed);
         }
 
+        function getRandomColorInRange() {
+            var minR = 204;
+            var minG = 193;
+            var minB = 163;
+
+            var maxR = 255;
+            var maxG = 255;
+            var maxB = 255;
+
+            var brightnessModifier = Math.floor(Math.random() * 60);
+
+            var r = Math.floor(Math.random() * (maxR - minR + 1)) + minR - brightnessModifier;
+            var g = Math.floor(Math.random() * (maxG - minG + 1)) + minG - brightnessModifier;
+            var b = Math.floor(Math.random() * (maxB - minB + 1)) + minB - brightnessModifier;
+            return "rgb(" + r + "," + g + "," + b + ")";
+        }
+
         function updateCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
             var starAmount = canvas.width * canvas.height / 10000;
             
-            var starColorStops = [
-                {offset: 0, color: 'white'},
-                {offset: 1, color: 'black'},
-            ];
-
+            
             for (let index = 0; index < starAmount; index++) {
                 var x = Math.floor(Math.random() * canvas.width);
                 var y = Math.floor(Math.random() * canvas.height);
+
+                var starColorStops = [
+                    {offset: 0, color: getRandomColorInRange()},
+                    {offset: 1, color: 'black'},
+                ];
                 
                 var starSize = 2 + Math.floor(Math.random() * 10);
                 var gradient = context.createRadialGradient(
