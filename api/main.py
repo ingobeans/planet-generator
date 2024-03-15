@@ -72,7 +72,7 @@ Sky Color:  {sky_description}
 Moons:  {num_moons}   {', '.join(moons)}
 Planet Stats
 Size:   {size} x Earth
-Radius:   {radius} km / {radius * 0.621371} miles
+Radius:   {radius} km
 Gravity:   {gravity} x Earth's gravity
 Temperature range:  Low: {low_temp} °C
                 High: {high_temp} °C
