@@ -7,12 +7,16 @@
     <title>Planet Generator</title>
 </head>
 <body>
+    <canvas id="stars" style="position:absolute; left:0; top: 0; width:100vw; height: 100vh; z-index: -1;"></canvas>
     <h1>Planet Generator</h1>
     <input type="text" id="seed" name="seed" placeholder="Seed (optional)"><br><br>
     <button onclick="generatePlanet()">Generate</button><br><br>
     <div id="planetInfo" style="display: inline-block;"></div>
 
     <script>
+        var canvas = document.getElementById('stars');
+        var context = canvas.getContext('2d');
+
         function generatePlanet() {
             var seed = document.getElementById('seed').value;
             var xhr = new XMLHttpRequest();
@@ -26,6 +30,41 @@
             };
             xhr.send('seed=' + seed);
         }
+
+        function updateCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            var starAmount = canvas.width * canvas.height / 10000;
+            
+            var starColorStops = [
+                {offset: 0, color: 'white'},
+                {offset: 1, color: 'black'},
+            ];
+
+            for (let index = 0; index < starAmount; index++) {
+                var x = Math.floor(Math.random() * canvas.width);
+                var y = Math.floor(Math.random() * canvas.height);
+                
+                var starSize = 2 + Math.floor(Math.random() * 10);
+                var gradient = context.createRadialGradient(
+                    x + starSize / 2, y + starSize / 2, starSize / 5, // Start circle center (x, y, radius)
+                    x + starSize / 2, y + starSize / 2, starSize / 2 // End circle center (x, y, radius)
+                );
+                
+                starColorStops.forEach(function(colorStop) {
+                    gradient.addColorStop(colorStop.offset, colorStop.color);
+                });
+                
+                context.fillStyle = gradient;
+                context.fillRect(x, y, starSize, starSize);
+            }
+        }
+        
+        updateCanvasSize();
+        
+        window.addEventListener('resize', function() {
+            updateCanvasSize();
+        });
     </script>
 </body>
 </html>
