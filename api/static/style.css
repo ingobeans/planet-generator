@@ -20,6 +20,13 @@ pre {
   white-space: -pre-wrap;
   white-space: -o-pre-wrap;
   word-wrap: break-word;
+  margin: 10px;
+}
+
+#planetInfo {
+  display: inline-block; 
+  background-color: #0b0b0b;
+  padding: 0;
 }
 
 input:focus,

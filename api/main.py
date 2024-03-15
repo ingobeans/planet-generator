@@ -66,24 +66,24 @@ def generate_planet(seed=None):
         seasonal_variations = "Extreme: The planet's axial tilt results in extremely long-lasting seasons."
     
     planet_info = f"""
-    Name:   {name}
-    Type:   {planet_type}
-    Sky Color:  {sky_description}
-    Moons:  {num_moons}   {', '.join(moons)}
-    Planet Stats
-    Size:   {size} x Earth
-    Radius:   {radius} km / {radius * 0.621371} miles
-    Gravity:   {gravity} x Earth's gravity
-    Temperature range:  Low: {low_temp} °C
-                    High: {high_temp} °C
-    Average surface temperature:   {avg_temp} °C
-    Water Prevalence:   {water_surface}%: ({water_surface}% Surface water / {water_subterranean}% Subterranean)
-    Earth life:   {earth_life}
-    Planet Motion
-    Length of Day:   {length_day} hours
-    Length of Year:   {length_year} Earth days
-    Seasonal variations:  {seasonal_variations}
-    """
+Name:   {name}
+Type:   {planet_type}
+Sky Color:  {sky_description}
+Moons:  {num_moons}   {', '.join(moons)}
+Planet Stats
+Size:   {size} x Earth
+Radius:   {radius} km / {radius * 0.621371} miles
+Gravity:   {gravity} x Earth's gravity
+Temperature range:  Low: {low_temp} °C
+                High: {high_temp} °C
+Average surface temperature:   {avg_temp} °C
+Water Prevalence:   {water_surface}%: ({water_surface}% Surface water / {water_subterranean}% Subterranean)
+Earth life:   {earth_life}
+Planet Motion
+Length of Day:   {length_day} hours
+Length of Year:   {length_year} Earth days
+Seasonal variations:  {seasonal_variations}
+"""
     
     return planet_info
 
